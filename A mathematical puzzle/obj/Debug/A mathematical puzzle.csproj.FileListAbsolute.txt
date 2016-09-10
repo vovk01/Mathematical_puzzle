@@ -1,0 +1,9 @@
+C:\Users\vovk9_000\OneDrive\Study\C#\A mathematical puzzle\A mathematical puzzle\bin\Debug\A mathematical puzzle.exe.config
+C:\Users\vovk9_000\OneDrive\Study\C#\A mathematical puzzle\A mathematical puzzle\bin\Debug\A mathematical puzzle.exe
+C:\Users\vovk9_000\OneDrive\Study\C#\A mathematical puzzle\A mathematical puzzle\bin\Debug\A mathematical puzzle.pdb
+C:\Users\vovk9_000\OneDrive\Study\C#\A mathematical puzzle\A mathematical puzzle\obj\Debug\A mathematical puzzle.csprojResolveAssemblyReference.cache
+C:\Users\vovk9_000\OneDrive\Study\C#\A mathematical puzzle\A mathematical puzzle\obj\Debug\A_mathematical_puzzle.Properties.Resources.resources
+C:\Users\vovk9_000\OneDrive\Study\C#\A mathematical puzzle\A mathematical puzzle\obj\Debug\A mathematical puzzle.csproj.GenerateResource.Cache
+C:\Users\vovk9_000\OneDrive\Study\C#\A mathematical puzzle\A mathematical puzzle\obj\Debug\A mathematical puzzle.exe
+C:\Users\vovk9_000\OneDrive\Study\C#\A mathematical puzzle\A mathematical puzzle\obj\Debug\A mathematical puzzle.pdb
+C:\Users\vovk9_000\OneDrive\Study\C#\A mathematical puzzle\A mathematical puzzle\obj\Debug\A_mathematical_puzzle.Form1.resources
