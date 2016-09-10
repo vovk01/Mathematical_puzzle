@@ -180,10 +180,7 @@ namespace A_mathematical_puzzle
 
         private void quotient_ValueChanged(object sender, EventArgs e)
         {
-            if (dividend / divisor == quotient.Value)
-            {
-   
-            }
+           
         }
     }
 }
