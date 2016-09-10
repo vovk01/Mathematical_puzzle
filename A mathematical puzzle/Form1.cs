@@ -15,23 +15,35 @@ namespace A_mathematical_puzzle
         //Create random object called randomizer
         //to generate random numbers.
         Random randomizer = new Random();
-        int addent1;
-        int addent2;
+        int addend1;
+        int addend2;
         int timeLeft;
+        private bool CheckTheAnswer()
+        {
+            if (addend1 + addend2 == sum.Value)
+                return true;
+            else
+                return false;
+        }
         public void StartTheQuiz()
         {
-            addent1 = randomizer.Next(51);
-            addent2 = randomizer.Next(51);
 
-            plusLeftLabel.Text = addent1.ToString();
-            plusRightLabel.Text = addent2.ToString();
+            addend1 = randomizer.Next(51);
+            addend2 = randomizer.Next(51);
+
+            plusLeftLabel.Text = addend1.ToString();
+            plusRightLabel.Text = addend2.ToString();
 
             sum.Value = 0;
 
             timeLeft = 30;
             timeLabel.Text = "30 seconds";
             timer1.Start();
+
         }
+
+
+
         public Form1()
         {
             InitializeComponent();
@@ -70,7 +82,14 @@ namespace A_mathematical_puzzle
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (timeLeft > 0)
+            if (CheckTheAnswer())
+            {
+                timer1.Stop();
+                MessageBox.Show("You got all the answers right!",
+                                "Congratulations!");
+                startButton.Enabled = true;
+            }
+            else if (timeLeft > 0)
             {
                 // Display the new time left
                 // by updating the time left label.
@@ -82,7 +101,7 @@ namespace A_mathematical_puzzle
                 timer1.Stop();
                 timeLabel.Text = "Tim`s up";
                 MessageBox.Show("You didn`t finish in time.", "Sorry!");
-                sum.Value = addent1 + addent2;
+                sum.Value = addend1 + addend2;
                 startButton.Enabled = true;
             }
         }
