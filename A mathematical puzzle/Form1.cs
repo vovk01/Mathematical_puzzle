@@ -182,7 +182,7 @@ namespace A_mathematical_puzzle
         {
             if (dividend / divisor == quotient.Value)
             {
-                    soundCorrectAnswer.Play();
+   
             }
         }
     }
