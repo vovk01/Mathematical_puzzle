@@ -17,7 +17,7 @@ namespace A_mathematical_puzzle
         Random randomizer = new Random();
         int addent1;
         int addent2;
-
+        int timeLeft;
         public void StartTheQuiz()
         {
             addent1 = randomizer.Next(51);
@@ -27,6 +27,10 @@ namespace A_mathematical_puzzle
             plusRightLabel.Text = addent2.ToString();
 
             sum.Value = 0;
+
+            timeLeft = 30;
+            timeLabel.Text = "30 seconds";
+            timer1.Start();
         }
         public Form1()
         {
@@ -62,6 +66,25 @@ namespace A_mathematical_puzzle
         {
             StartTheQuiz();
             startButton.Enabled = false;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (timeLeft > 0)
+            {
+                // Display the new time left
+                // by updating the time left label.
+                timeLeft = timeLeft - 1;
+                timeLabel.Text = timeLeft + "seconds";
+            }
+            else
+            {
+                timer1.Stop();
+                timeLabel.Text = "Tim`s up";
+                MessageBox.Show("You didn`t finish in time.", "Sorry!");
+                sum.Value = addent1 + addent2;
+                startButton.Enabled = true;
+            }
         }
     }
 }
