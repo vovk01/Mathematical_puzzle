@@ -15,28 +15,35 @@ namespace A_mathematical_puzzle
         //Create random object called randomizer
         //to generate random numbers.
         Random randomizer = new Random();
-        
+        System.Media.SoundPlayer soundCorrectAnswer = new System.Media.SoundPlayer(@"C:\Windows\Media\chord.wav");
         int addend1;
         int addend2;
-
-        int timeLeft;
         
         int minuend;
         int subtrahend;
 
+        int multiplicand;
+        int multiplier;
+
+        int dividend;
+        int divisor;
+        
+        int timeLeft;
 
         private bool CheckTheAnswer()
         {
 
             if ((addend1 + addend2 == sum.Value)
-                &&(minuend - subtrahend == difference.Value))
+                &&(minuend - subtrahend == difference.Value)
+                && (multiplicand * multiplier == product.Value)
+                && (dividend / divisor == quotient.Value))
                 return true;
             else
                 return false;
         }
         public void StartTheQuiz()
         {
-
+            // Fill in the addition problem.
             addend1 = randomizer.Next(51);
             addend2 = randomizer.Next(51);
 
@@ -45,12 +52,27 @@ namespace A_mathematical_puzzle
 
             sum.Value = 0;
 
+            // Fill in the subtraction problem.
             minuend = randomizer.Next(1, 101);
             subtrahend = randomizer.Next(1, minuend);
             minusLeftLabel.Text = minuend.ToString();
             minusRightLabel.Text = subtrahend.ToString();
             difference.Value = 0;
 
+            // Fill in the multiplication problem.
+            multiplicand = randomizer.Next(2, 11);
+            multiplier = randomizer.Next(2, 11);
+            timesLeftLabel.Text = multiplicand.ToString();
+            timesRightLabel.Text = multiplier.ToString();
+            product.Value = 0;
+
+            // Fill in the division problem.
+            divisor = randomizer.Next(2, 11);
+            int temporaryQuotient = randomizer.Next(2, 11);
+            dividend = divisor * temporaryQuotient;
+            dividedLeftLabel.Text = dividend.ToString();
+            dividedRightLabel.Text = divisor.ToString();
+            quotient.Value = 0;
 
             timeLeft = 30;
             timeLabel.Text = "30 seconds";
@@ -75,10 +97,7 @@ namespace A_mathematical_puzzle
 
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+   
 
         private void label9_Click(object sender, EventArgs e)
         {
@@ -119,6 +138,8 @@ namespace A_mathematical_puzzle
                 MessageBox.Show("You didn`t finish in time.", "Sorry!");
                 sum.Value = addend1 + addend2;
                 difference.Value = minuend - subtrahend;
+                product.Value = multiplicand * multiplier;
+                quotient.Value = dividend / divisor;
                 startButton.Enabled = true;
             }
         }
@@ -131,6 +152,37 @@ namespace A_mathematical_puzzle
             {
                 int lenghtOfAnswer = answerBox.Value.ToString().Length;
                 answerBox.Select(0, lenghtOfAnswer);
+            }
+        }
+
+        private void difference_ValueChanged(object sender, EventArgs e)
+        {
+            if (minuend - subtrahend == difference.Value)
+            {
+                soundCorrectAnswer.Play();
+            }
+        }
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            if (addend1 + addend2 == sum.Value)
+            {
+                soundCorrectAnswer.Play();
+            }
+        }
+
+        private void product_ValueChanged(object sender, EventArgs e)
+        {
+            if (multiplicand * multiplier == product.Value)
+            {
+                soundCorrectAnswer.Play();
+            }
+        }
+
+        private void quotient_ValueChanged(object sender, EventArgs e)
+        {
+            if (dividend / divisor == quotient.Value)
+            {
+                    soundCorrectAnswer.Play();
             }
         }
     }
